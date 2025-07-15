@@ -20,6 +20,7 @@ Username	Contraseña	Rol
 admin	12345	ADMIN
 user	12345	USER
 
+
 ## Endpoints de Autenticación
 
 ## Login
