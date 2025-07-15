@@ -5,6 +5,7 @@ import com.tareas.gestion.dto.TareaResponseDTOs;
 import com.tareas.gestion.service.TareaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,24 @@ public class TareaController {
 
     public TareaController(TareaService tareaService) {
         this.tareaService = tareaService;
+    }
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> tareasParaAdmin() {
+        return ResponseEntity.ok("Contenido solo para ADMIN");
+    }
+
+    @GetMapping("/user")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<String> tareasParaUser() {
+        return ResponseEntity.ok("Contenido solo para USER");
+    }
+
+    @GetMapping("/ambos")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<String> tareasParaAmbos() {
+        return ResponseEntity.ok("Contenido para ADMIN y USER");
     }
     @GetMapping
     public List<TareaResponseDTOs> listar(@AuthenticationPrincipal UserDetails user){
