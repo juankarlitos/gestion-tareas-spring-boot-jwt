@@ -15,7 +15,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration// clase de configuracion
-@EnableMethodSecurity//activamos la seguridada a nivel de metodo(permite restringir acceso en los metodos de los servicios o controladores)
+@EnableMethodSecurity//activamos la seguridada a nivel de metodo(permite restringir acceso en los
+// metodos de los servicios o controladores)
 
 public class SecurityConfig {
 
