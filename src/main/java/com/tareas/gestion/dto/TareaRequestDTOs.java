@@ -6,10 +6,13 @@ public class TareaRequestDTOs {
     private String descripcion;
     private Long estadoId;
 
-    public TareaRequestDTOs(String titulo, String descripcion, Long estadoId) {
+    private int numero_hojas;
+
+    public TareaRequestDTOs(String titulo, String descripcion, Long estadoId, int numero_hojas) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.estadoId = estadoId;
+        this.numero_hojas = numero_hojas;
     }
     public TareaRequestDTOs() {
     }
@@ -30,5 +33,13 @@ public class TareaRequestDTOs {
     }
     public void setEstadoId(Long estadoId) {
         this.estadoId = estadoId;
+    }
+
+    public int getNumero_hojas() {
+        return numero_hojas;
+    }
+
+    public void setNumero_hojas(int numero_hojas) {
+        this.numero_hojas = numero_hojas;
     }
 }
